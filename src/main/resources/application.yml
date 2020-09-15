@@ -1,0 +1,10 @@
+spring:
+  h2.console:
+    enabled: true
+    path: '/console'
+  datasource:
+    url: 'jdbc:h2:file:D:\Java\Workspaces\web-shop\web-shop-db'
+  jpa:
+    gibernate:
+      ddl-auto: update
+
