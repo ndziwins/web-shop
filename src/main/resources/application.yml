@@ -7,6 +7,5 @@ spring:
   datasource:
     url: 'jdbc:h2:file:D:\Java\Workspaces\web-shop\web-shop-db'
   jpa:
-    gibernate:
-      ddl-auto: validate
-
+    hibernate:
+      ddl-auto: update

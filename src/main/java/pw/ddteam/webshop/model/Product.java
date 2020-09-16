@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "products")
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotBlank(message = "Product name must not be empty")
     private String name;

@@ -12,7 +12,7 @@
 //import java.net.URI;
 //import java.util.List;
 //
-////@RestController
+//@RestController
 //class ProductController {
 //    private final ProductRepository repository;
 //
@@ -20,13 +20,13 @@
 //        this.repository = repository;
 //    }
 //
-////    @PostMapping("/products")
+//    @PostMapping("/products")
 //    ResponseEntity<Product> createProduct(@RequestBody @Valid Product toCreate){
 //        Product result = repository.save(toCreate);
 //        return ResponseEntity.created(URI.create("/" + result.getId())).body(result);
 //    }
 //
-////    @GetMapping("/products")
+//    @GetMapping("/products")
 //    ResponseEntity<List<Product>> readAllProducts() {
 //        return ResponseEntity.ok(repository.findAll());
 //    }
