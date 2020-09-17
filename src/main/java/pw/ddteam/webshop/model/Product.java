@@ -17,6 +17,8 @@ public class Product {
     private String description;
     private String picturePath;
 
+    private double grossPrice;
+
     Product() {
     }
 
@@ -50,6 +52,14 @@ public class Product {
 
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
+    }
+
+    public double getGrossPrice() {
+        return grossPrice;
+    }
+
+    public void setGrossPrice(double grossPrice) {
+        this.grossPrice = grossPrice;
     }
 
     public void updateFrom(final Product source) {
