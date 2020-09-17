@@ -34,3 +34,4 @@ build/
 
 ### DB ###
 .web-shop-db.mv.db
+/web-shop-db.mv.db
