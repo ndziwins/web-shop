@@ -11,17 +11,17 @@ import java.util.Optional;
 
 @RepositoryRestResource
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-//    List<Product> findAll();
-//
-//    Page<Product> findAll(Pageable page);
-//
-//    Optional<Product> findById(Integer id);
-//
-//    Optional<Product> findByName(String name);
-//
-//    boolean existsById(Integer id);
-//
-//    boolean existImagePath(String path);
-//
-//    Product save(Product entity);
+    List<Product> findAll();
+
+    Page<Product> findAll(Pageable page);
+
+    Optional<Product> findById(Integer id);
+
+    Optional<Product> findByName(String name);
+
+    boolean existsById(Integer id);
+
+//    boolean existPicturePath(String picturePath);
+
+    Product save(Product entity);
 }
