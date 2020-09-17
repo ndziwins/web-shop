@@ -1,6 +1,8 @@
 package pw.ddteam.webshop.model;
 
 
+import org.springframework.scheduling.config.Task;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -49,4 +51,12 @@ public class Product {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
+
+    public void updateFrom(final Product source) {
+        name = source.name;
+        description = source.description;
+        picturePath = source.picturePath;
+
+    }
+
 }

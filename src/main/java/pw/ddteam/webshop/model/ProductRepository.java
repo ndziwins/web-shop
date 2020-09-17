@@ -21,7 +21,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     boolean existsById(Integer id);
 
-//    boolean existPicturePath(String picturePath);
-
     Product save(Product entity);
 }
