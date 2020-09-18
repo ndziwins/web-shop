@@ -7,14 +7,16 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "quantity")
 public class Quantity {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     @NotBlank(message = "Product quantity must not be empty")
     private int quantity;
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Product product;
 
     public Quantity() {
     }
-
 
     public int getId() {
         return id;
@@ -30,6 +32,14 @@ public class Quantity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void updateFrom(final Quantity source) {

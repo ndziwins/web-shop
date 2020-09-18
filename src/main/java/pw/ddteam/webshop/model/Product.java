@@ -17,7 +17,8 @@ public class Product {
     private String description;
     private String picturePath;
     private double grossPrice;
-    private int quantityId;
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    private Quantity quantity;
 
     Product() {
     }
@@ -62,12 +63,12 @@ public class Product {
         this.grossPrice = grossPrice;
     }
 
-    public int getQuantityId() {
-        return quantityId;
+    public Quantity getQuantity() {
+        return quantity;
     }
 
-    public void setQuantityId(int quantityId) {
-        this.quantityId = quantityId;
+    public void setQuantity(Quantity quantity) {
+        this.quantity = quantity;
     }
 
     public void updateFrom(final Product source) {
