@@ -16,8 +16,8 @@ public class Product {
     private String name;
     private String description;
     private String picturePath;
-
     private double grossPrice;
+    private int quantityId;
 
     Product() {
     }
@@ -60,6 +60,14 @@ public class Product {
 
     public void setGrossPrice(double grossPrice) {
         this.grossPrice = grossPrice;
+    }
+
+    public int getQuantityId() {
+        return quantityId;
+    }
+
+    public void setQuantityId(int quantityId) {
+        this.quantityId = quantityId;
     }
 
     public void updateFrom(final Product source) {
