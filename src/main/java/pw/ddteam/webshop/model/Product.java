@@ -1,6 +1,8 @@
 package pw.ddteam.webshop.model;
 
 
+import org.springframework.scheduling.config.Task;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -8,12 +10,15 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "id")
     private int id;
     @NotBlank(message = "Product name must not be empty")
     private String name;
     private String description;
     private String picturePath;
+    private double grossPrice;
+    private int quantity;
 
     Product() {
     }
@@ -49,4 +54,34 @@ public class Product {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
+
+    public double getGrossPrice() {
+        return grossPrice;
+    }
+
+    public void setGrossPrice(double grossPrice) {
+        this.grossPrice = grossPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+ //   public void buy(int quantityBuyed) {this.quantity = quantity - quantityBuyed; }
+
+    public void buy(final Product source){
+        quantity = quantity - source.quantity;
+    }
+
+    public void updateFrom(final Product source) {
+        name = source.name;
+        description = source.description;
+        picturePath = source.picturePath;
+        quantity = source.quantity;
+    }
+
 }
