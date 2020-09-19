@@ -51,4 +51,18 @@ class ProductController {
                 });
         return ResponseEntity.noContent().build();
     }
+
+    @Transactional
+    @PutMapping("/buy/{id}")
+    ResponseEntity<?> buy(@PathVariable int id, @RequestBody @Valid Product toUpdate) {
+        if (!repository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        repository.findById(id)
+                .ifPresent(product -> {
+                    product.buy(toUpdate);
+                    repository.save(product);
+                });
+        return ResponseEntity.noContent().build();
+    }
 }

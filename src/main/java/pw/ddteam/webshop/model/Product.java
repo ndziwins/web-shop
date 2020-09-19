@@ -11,14 +11,14 @@ import javax.validation.constraints.NotBlank;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "id")
     private int id;
     @NotBlank(message = "Product name must not be empty")
     private String name;
     private String description;
     private String picturePath;
     private double grossPrice;
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
-    private Quantity quantity;
+    private int quantity;
 
     Product() {
     }
@@ -63,19 +63,25 @@ public class Product {
         this.grossPrice = grossPrice;
     }
 
-    public Quantity getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Quantity quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+ //   public void buy(int quantityBuyed) {this.quantity = quantity - quantityBuyed; }
+
+    public void buy(final Product source){
+        quantity = quantity - source.quantity;
     }
 
     public void updateFrom(final Product source) {
         name = source.name;
         description = source.description;
         picturePath = source.picturePath;
-
+        quantity = source.quantity;
     }
 
 }
