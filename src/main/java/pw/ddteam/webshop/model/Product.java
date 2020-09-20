@@ -20,10 +20,21 @@ public class Product {
     private double grossPrice;
     private int quantity;
 
-    Product() {
+    public Product() {
     }
 
-    public int getId() {
+    public Product(int id, @NotBlank(message = "Product name must not be empty") String name, String description,
+			String picturePath, double grossPrice, int quantity) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.picturePath = picturePath;
+		this.grossPrice = grossPrice;
+		this.quantity = quantity;
+	}
+
+	public int getId() {
         return id;
     }
 
