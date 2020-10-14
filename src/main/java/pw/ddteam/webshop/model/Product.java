@@ -84,4 +84,9 @@ public class Product {
         quantity = source.quantity;
     }
 
+    @Override
+    public String toString() {
+        return "Id: " + getId() + " Name: " + getName() + " Description: " + getDescription() + " Price: " + getGrossPrice();
+    }
+
 }
