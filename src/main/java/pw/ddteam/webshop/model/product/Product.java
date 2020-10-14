@@ -1,7 +1,5 @@
-package pw.ddteam.webshop.model;
+package pw.ddteam.webshop.model.product;
 
-
-import org.springframework.scheduling.config.Task;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -71,17 +69,8 @@ public class Product {
         this.quantity = quantity;
     }
 
- //   public void buy(int quantityBuyed) {this.quantity = quantity - quantityBuyed; }
-
     public void buy(final Product source){
         quantity = quantity - source.quantity;
-    }
-
-    public void updateFrom(final Product source) {
-        name = source.name;
-        description = source.description;
-        picturePath = source.picturePath;
-        quantity = source.quantity;
     }
 
     @Override

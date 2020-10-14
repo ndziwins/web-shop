@@ -1,10 +1,9 @@
 package pw.ddteam.webshop.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.config.Task;
 import org.springframework.web.bind.annotation.*;
-import pw.ddteam.webshop.model.Product;
-import pw.ddteam.webshop.model.ProductRepository;
+import pw.ddteam.webshop.model.product.Product;
+import pw.ddteam.webshop.model.product.ProductRepository;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
