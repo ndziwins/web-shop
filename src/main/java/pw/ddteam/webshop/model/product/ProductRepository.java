@@ -21,8 +21,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     boolean existsById(Integer id);
 
     Product save(Product entity);
-
-    void delete(int id);
-
-
 }

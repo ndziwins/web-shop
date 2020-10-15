@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImplementation implements ProductService{
+
     private final ProductRepository productRepository;
 
     @Autowired
@@ -29,7 +30,7 @@ public class ProductServiceImplementation implements ProductService{
 
     @Override
     public void delete(int id) {
-        productRepository.delete(id);
+        productRepository.delete(findById(id));
     }
 
     @Override

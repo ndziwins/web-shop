@@ -1,7 +1,6 @@
 package pw.ddteam.webshop.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ import pw.ddteam.webshop.model.product.ProductService;
 
 @Controller
 public class CartController {
-    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
+    private static final Logger logger = Logger.getLogger(ProductController.class.getName());
     private final CartService cartService;
     private final ProductService productService;
 
@@ -36,7 +35,7 @@ public class CartController {
         Product product = productService.findById(id);
         if (product != null){
             cartService.addProduct(product);
-            logger.debug(String.format("Product with id: %s added to shopping cart.", id));
+            logger.info(String.format("Product with id: %s added to shopping cart.", id));
         }
         return "redirect:/home";
     }
@@ -46,7 +45,7 @@ public class CartController {
         Product product = productService.findById(id);
         if (product != null){
             cartService.removeProduct(product);
-            logger.debug(String.format("Product with id: %s removed from shopping cart.", id));
+            logger.info(String.format("Product with id: %s removed from shopping cart.", id));
         }
         return "redirect:/cart";
     }
@@ -54,6 +53,7 @@ public class CartController {
     @GetMapping("/cart/clear")
     public String clearProductsInCart(){
         cartService.clearProducts();
+        logger.info("Cart cleared.");
 
         return "redirect:/cart";
     }
@@ -61,7 +61,7 @@ public class CartController {
     @GetMapping("/cart/checkout")
     public String cartCheckout(){
         cartService.cartCheckout();
-
+        logger.info("Cart checkouted.");
         return "redirect:/cart";
     }
 }

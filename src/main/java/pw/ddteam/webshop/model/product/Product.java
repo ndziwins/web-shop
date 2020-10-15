@@ -79,4 +79,11 @@ public class Product {
         return "Id: " + getId() + " Name: " + getName() + " Description: " + getDescription() + " Price: " + getGrossPrice();
     }
 
+    public void updateFrom(Product toUpdate) {
+        this.setName(toUpdate.getName());
+        this.setDescription(toUpdate.getDescription());
+        this.setPicturePath(toUpdate.getPicturePath());
+        this.setQuantity(toUpdate.getQuantity());
+        this.setGrossPrice(toUpdate.getGrossPrice());
+    }
 }
