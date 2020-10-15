@@ -51,7 +51,7 @@ public class CartServiceImplementation implements CartService{
     @Override
     public BigDecimal totalPrice() {
         return cart.entrySet().stream()
-                .map(k -> k.getKey().getPrice().multiply(BigDecimal.valueOf(k.getValue()))).sorted()
+                .map(k -> k.getKey().getGrossPrice().multiply(BigDecimal.valueOf(k.getValue()))).sorted()
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }
@@ -59,6 +59,7 @@ public class CartServiceImplementation implements CartService{
     @Override
     public void cartCheckout() {
         cart.clear();
-        // Normally there would be payment etc.
+        //TODO: payment method page
+        //TODO: notification for shop about order
     }
 }

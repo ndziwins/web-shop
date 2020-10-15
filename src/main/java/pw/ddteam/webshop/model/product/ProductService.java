@@ -9,4 +9,6 @@ public interface ProductService {
     void delete(int id);
 
     int productsTypeQuantity();
+
+    Product findById(Integer id);
 }

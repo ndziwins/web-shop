@@ -23,4 +23,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Product save(Product entity);
 
     void delete(int id);
+
+
 }

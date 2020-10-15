@@ -3,6 +3,7 @@ package pw.ddteam.webshop.model.product;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -15,7 +16,7 @@ public class Product {
     private String name;
     private String description;
     private String picturePath;
-    private double grossPrice;
+    private BigDecimal grossPrice;
     private int quantity;
 
     Product() {
@@ -53,11 +54,11 @@ public class Product {
         this.picturePath = picturePath;
     }
 
-    public double getGrossPrice() {
+    public BigDecimal getGrossPrice() {
         return grossPrice;
     }
 
-    public void setGrossPrice(double grossPrice) {
+    public void setGrossPrice(BigDecimal grossPrice) {
         this.grossPrice = grossPrice;
     }
 

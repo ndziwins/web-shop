@@ -32,7 +32,7 @@ public class CartController {
     }
 
     @GetMapping("/cart/add/{id}")
-    public String addProductToCart(@PathVariable("id") long id){
+    public String addProductToCart(@PathVariable("id") int id){
         Product product = productService.findById(id);
         if (product != null){
             cartService.addProduct(product);
@@ -42,7 +42,7 @@ public class CartController {
     }
 
     @GetMapping("/cart/remove/{id}")
-    public String removeProductFromCart(@PathVariable("id") long id){
+    public String removeProductFromCart(@PathVariable("id") int id){
         Product product = productService.findById(id);
         if (product != null){
             cartService.removeProduct(product);

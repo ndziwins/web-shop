@@ -3,8 +3,6 @@ package pw.ddteam.webshop.model.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class ProductServiceImplementation implements ProductService{
     private final ProductRepository productRepository;
@@ -37,5 +35,10 @@ public class ProductServiceImplementation implements ProductService{
     @Override
     public int productsTypeQuantity() {
         return (int) productRepository.count();
+    }
+
+    @Override
+    public Product findById(Integer id) {
+        return productRepository.findById(id).get();
     }
 }
