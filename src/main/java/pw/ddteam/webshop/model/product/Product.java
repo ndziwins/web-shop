@@ -1,10 +1,9 @@
-package pw.ddteam.webshop.model;
+package pw.ddteam.webshop.model.product;
 
-
-import org.springframework.scheduling.config.Task;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -17,7 +16,7 @@ public class Product {
     private String name;
     private String description;
     private String picturePath;
-    private double grossPrice;
+    private BigDecimal grossPrice;
     private int quantity;
 
     Product() {
@@ -55,11 +54,11 @@ public class Product {
         this.picturePath = picturePath;
     }
 
-    public double getGrossPrice() {
+    public BigDecimal getGrossPrice() {
         return grossPrice;
     }
 
-    public void setGrossPrice(double grossPrice) {
+    public void setGrossPrice(BigDecimal grossPrice) {
         this.grossPrice = grossPrice;
     }
 
@@ -71,17 +70,20 @@ public class Product {
         this.quantity = quantity;
     }
 
- //   public void buy(int quantityBuyed) {this.quantity = quantity - quantityBuyed; }
-
     public void buy(final Product source){
         quantity = quantity - source.quantity;
     }
 
-    public void updateFrom(final Product source) {
-        name = source.name;
-        description = source.description;
-        picturePath = source.picturePath;
-        quantity = source.quantity;
+    @Override
+    public String toString() {
+        return "Id: " + getId() + " Name: " + getName() + " Description: " + getDescription() + " Price: " + getGrossPrice();
     }
 
+    public void updateFrom(Product toUpdate) {
+        this.setName(toUpdate.getName());
+        this.setDescription(toUpdate.getDescription());
+        this.setPicturePath(toUpdate.getPicturePath());
+        this.setQuantity(toUpdate.getQuantity());
+        this.setGrossPrice(toUpdate.getGrossPrice());
+    }
 }
